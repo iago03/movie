@@ -1,0 +1,25 @@
+<header
+[ngClass]="{'header-active':activeProperti}"
+>
+    <nav>
+        <div class="logo">
+            <h1>MOVIES</h1>
+        </div>
+        <ul
+        [ngClass]="{'ul-active':activeProperti}"
+        >
+            <li
+            (click)="changeActive()"
+            >
+                <a routerLink="/">Popular</a>
+            </li>
+        </ul>
+
+        <div
+        (click)="changeActive()"
+        [ngClass]="{'active': activeProperti}"
+        class="menu-btn">
+            <div class="burger-button"></div>
+        </div>
+    </nav>
+</header>

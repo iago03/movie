@@ -1,0 +1,192 @@
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 80%;
+    margin: 0px auto;
+    padding: 30px 0px;
+    background-color: transparent;
+    z-index: 3;
+}
+
+a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.733);
+    font-size: 25px;
+}
+
+header nav,header nav .logo,header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav{
+    width: 75%;
+    margin: 0px auto;
+}
+
+header nav .logo{
+    width: 35%;
+    margin: 0px;
+    cursor: pointer;
+}
+
+header nav .logo h1{
+    margin: 0px;
+    font-family: 'Marck Script', cursive;
+    font-size: 35px;
+    color: white;
+}
+
+header nav ul{
+    width: 60%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+}
+
+nav ul li a,
+nav ul li a:after{
+    transition: all .5s;
+}
+
+nav ul li a:hover {
+    color: rgb(148, 148, 148);
+}
+
+nav ul li a{
+    position: relative;
+}
+
+nav ul li a:after{
+    content: '.';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    color: transparent;
+    background: #aaa;
+    height: 2px;
+}
+
+nav ul li a:hover:after {
+    width: 100%;
+}
+
+header nav .drop-down{
+    display: none;
+}
+
+.active::after{
+    width: 100%!important;
+}
+
+/* respons */
+@media screen and (max-width:1150px){
+    header nav{
+        width: 90%;
+    }
+
+    header nav ul{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:800px){
+    .header-active{
+        position: unset;
+    }
+
+    header nav .logo{
+        width: 100%;
+    }
+
+    header nav .logo h1{
+        text-align: center;
+    }
+
+    header nav ul{
+        display: none;
+    }
+
+    header nav .ul-active{
+        display: flex;
+        position: fixed;
+        background: linear-gradient(90deg, rgb(20, 20, 32) 0%, rgb(20, 20, 59) 100%);
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    header nav .ul-active li{
+        margin-top: 15px;
+    }
+
+    header nav .menu-btn{
+        position: fixed;
+        top: 30px;
+        right: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        z-index: 2;
+    }
+
+    header nav .menu-btn .burger-button{
+        width: 35px;
+        height: 4px;
+        background: rgb(125, 125, 125);
+        border-radius: 4px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    header nav .menu-btn .burger-button::before,
+    header nav .menu-btn .burger-button::after{
+        content: "";
+        position: absolute;
+        width: 35px;
+        height: 4px;
+        background: rgb(125, 125, 125);
+        border-radius: 4px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    header nav .menu-btn .burger-button::before{
+        transform: translateY(11px);
+    }
+
+    header nav .menu-btn .burger-button::after{
+        transform: translateY(-11px);
+    }
+
+    /* menu-btn active */
+
+    header nav .active .burger-button{
+        background: transparent;
+        transform: translateX(100px);
+    }
+
+    header nav .active .burger-button::before{
+        transform: translateX(-100px) rotate(45deg);
+    }
+
+    header nav .active .burger-button::after{
+        transform: translateX(-100px) rotate(-45deg);
+    }
+
+    /* menu-btn active */
+}

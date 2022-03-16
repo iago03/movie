@@ -1,0 +1,13 @@
+main h2{
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 35px;
+}
+
+main .card-area{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}

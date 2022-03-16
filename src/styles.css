@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    background: linear-gradient(90deg, rgb(20, 20, 32) 0%, rgb(20, 20, 59) 100%);
+}
+
+main{
+    width: 90%;
+    margin: 200px auto 0px;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
