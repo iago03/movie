@@ -60,6 +60,15 @@ export class HttpService {
       
   }
 
+  getMovieVideoLink(id:string){
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=730c458a75766d797ebf72e6c2791bf9&language=en-US`)
+      .pipe(map((response:any):string => {
+        let video = response.results.filter(v => v.name === "Official Trailer");
+        let videoUrl = `http://www.youtube.com/embed/${video[0].key}?modestbranding=1`
+        return videoUrl
+      }))
+  }
+
   // putRequest(){
   //   const headers = { 'content-type': 'application/json;charset=utf-8'}  
   //   const body=JSON.stringify(this.val);

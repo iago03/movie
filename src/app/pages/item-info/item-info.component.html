@@ -1,7 +1,5 @@
 <main>
-    <section class="info"
-    *ngIf="itemInfoData$ | async as ItemInfo"
-    >
+    <section class="info" *ngIf="itemInfoData$ | async as ItemInfo">
 
         <aside class="left">
             <div class="left-img">
@@ -18,19 +16,16 @@
         </aside>
 
         <aside class="right">
-            <h2
-            >{{ItemInfo.original_title}}</h2>
+            <h2>{{ItemInfo.original_title}}</h2>
             <p>Genres:
-                <span
-                *ngFor="let item of ItemInfo.genres"
-                >{{item.name}}, </span>
+                <span *ngFor="let item of ItemInfo.genres">{{item.name}}, </span>
 
             </p>
             <p>
                 Budget: <span>{{ItemInfo.budget | currency: 'USD'}}</span>
             </p>
             <p>
-               Releas-Data: <span>{{ItemInfo.release_date}}</span>
+                Releas-Data: <span>{{ItemInfo.release_date}}</span>
             </p>
             <p>
                 status: <span>{{ItemInfo.status}}</span>
@@ -38,13 +33,11 @@
             <p>
                 Rate: <span>{{ItemInfo.vote_average}}</span>
             </p>
-            
+
             <div class="img">
                 <p>Production Companies:</p>
-                <img 
-                *ngFor="let img of ItemInfo.production_companies"
-                [ngClass]="{'none': !img.logo_path}"
-                [src]="img.logo_path" alt="">
+                <img *ngFor="let img of ItemInfo.production_companies" [ngClass]="{'none': !img.logo_path}"
+                    [src]="img.logo_path" alt="">
             </div>
 
             <p>Overview: <span>{{ItemInfo.overview}}</span></p>
@@ -60,9 +53,20 @@
                 <label for="star2" title="text">2 stars</label>
                 <input type="radio" id="star1" name="rate" value="1" />
                 <label for="star1" title="text">1 star</label>
-              </div>
+            </div>
 
         </aside>
 
+
+
     </section>
+    <section class="video"
+    *ngIf="videoUrl; else elseBlock"
+    >
+        <iframe width="700" height="400" [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+    </section>
+    <ng-template #elseBlock>
+        <p class="error">Movie trailer not found</p>
+    </ng-template>
+    
 </main>

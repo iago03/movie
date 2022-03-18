@@ -81,6 +81,23 @@ main section .right .img img{
 }
 /* rate style */
 
+/* vido */
+
+main .video{
+    margin: 100px auto;
+}
+
+main .video iframe{
+    margin: 0px auto;
+}
+
+.error{
+    font-size: 30px;
+    color: red;
+    text-align: center;
+    margin: 50px 0px;
+}
+
 
 @media screen and (max-width:800px){
     main section{
