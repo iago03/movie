@@ -1,0 +1,11 @@
+<main>
+    <h2>MOVIES</h2>
+
+    <section class="cards-area">
+        <app-card
+        *ngFor="let item of data$ | async" [item]="item"
+        (click) = "getId(item.id)"
+        ></app-card>
+
+    </section>
+</main>

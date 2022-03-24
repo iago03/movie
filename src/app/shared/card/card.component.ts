@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PopularMoviesItems } from 'src/app/shared/shared-class';
+import { PopularMoviesItems } from 'src/app/shared-class/shared-class';
 
 @Component({
   selector: 'app-card',

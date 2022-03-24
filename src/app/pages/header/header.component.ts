@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-
-  constructor() { }
+export class HeaderComponent{
   activeProperti:boolean = false;
 
-  ngOnInit(): void {
-  }
+  constructor(private router:Router) { }
 
   changeActive(){
     this.windowWidthCheked();
+  }
+
+  navigate(name:string){
+    this.router.navigate(['/movie',name])
   }
 
   windowWidthCheked(){

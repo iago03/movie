@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
-import { HttpService } from 'src/app/shared/http.service';
-import { ItemInfo } from 'src/app/shared/shared-class';
+import { HttpService } from 'src/app/shared-service/http.service';
+import { ItemInfo } from 'src/app/shared-class/shared-class';
 
 @Component({
   selector: 'app-item-info',

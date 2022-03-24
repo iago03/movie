@@ -3,7 +3,9 @@
 >
     <nav>
         <div class="logo">
-            <h1>MOVIES</h1>
+            <h1
+            routerLink="/"
+            >MOVIES</h1>
         </div>
         <ul
         [ngClass]="{'ul-active':activeProperti}"
@@ -11,7 +13,17 @@
             <li
             (click)="changeActive()"
             >
-                <a routerLink="/">Popular</a>
+                <a (click)="navigate('popular')">Popular</a>
+            </li>
+            <li
+            (click)="changeActive()"
+            >
+                <a (click)="navigate('top_rated')">Top Rated</a>
+            </li>
+            <li
+            (click)="changeActive()"
+            >
+                <a (click)="navigate('upcoming')">Upcoming</a>
             </li>
         </ul>
 

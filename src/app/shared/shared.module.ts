@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
-import { CardComponent } from "../pages/card/card.component";
-import { TimePipe } from './time.pipe';
+import { CardComponent } from "./card/card.component";
+import { TimePipe } from '../pipe/time.pipe';
 
 @NgModule({
     declarations: [
