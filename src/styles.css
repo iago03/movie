@@ -5,6 +5,7 @@ body{
 }
 
 main{
+    max-width: 1200px;
     width: 90%;
     margin: 200px auto 0px;
 }

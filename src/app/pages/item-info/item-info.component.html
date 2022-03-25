@@ -68,5 +68,10 @@
     <ng-template #elseBlock>
         <p class="error">Movie trailer not found</p>
     </ng-template>
+
+    <app-swiper
+    *ngIf="similarMovies$ | async as similarMovies"
+    [swiperItems]="similarMovies"
+    ></app-swiper>
     
 </main>

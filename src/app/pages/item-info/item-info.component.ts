@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpService } from 'src/app/shared-service/http.service';
 import { ItemInfo } from 'src/app/shared-class/shared-class';
@@ -13,17 +13,21 @@ import { ItemInfo } from 'src/app/shared-class/shared-class';
 export class ItemInfoComponent implements OnInit {
   
   itemInfoData$:Observable<ItemInfo>;
+  similarMovies$:Observable<ItemInfo>;
   videoUrl:SafeResourceUrl;
   videoUrlError = false;
   Id:string;
   val = {val: 8.5}
 
-  constructor(private http:HttpService, private activeRoute:ActivatedRoute, private sanitaizer:DomSanitizer) { }
+  constructor(private http:HttpService, private activeRoute:ActivatedRoute, private sanitaizer:DomSanitizer, private route:Router) { 
+    this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
     this.getDataFromActiveRoute()
     this.getData();
-    this.getVideo()
+    this.getVideo();
+    this.getSimilarMovieList();
   }
 
   getData(){
@@ -39,30 +43,20 @@ export class ItemInfoComponent implements OnInit {
 
 
   getVideo(){
-    this.http.getMovieVideoLink(this.Id).subscribe(v => {
+    this.http.getMovieVideoLink(this.Id).subscribe({
+    
+    next: (v) => {
       this.videoUrl = this.sanitaizer.bypassSecurityTrustResourceUrl(v);
     },
-    err => {
+    error: (err) => {
       console.log(err)
-    }
+    }}
     );
   }
 
+  getSimilarMovieList(){
+    this.similarMovies$ = this.http.getSimilarMovieList(this.Id);
+  }
 
-
-
-  
-
-  // test(){
-  //   this.http.putRequest().subscribe(v => {
-  //     console.log(v)
-  //   })
-  // }
-
-  // token(){
-  //   this.http.sesionId().subscribe(v => {
-  //     console.log(v);
-  //   })
-  // }
 
 }

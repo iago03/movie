@@ -1,6 +1,6 @@
 .card{
     max-width: 250px;
-    margin-bottom: 30px;
+    margin: 0px 5px 30px;
     border: none;
     overflow: hidden;
     cursor: pointer;

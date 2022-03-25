@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PopularMoviesItems } from 'src/app/shared-class/shared-class';
 
 @Component({
@@ -6,13 +6,9 @@ import { PopularMoviesItems } from 'src/app/shared-class/shared-class';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent{
 
   @Input() item:PopularMoviesItems;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ItemInfoComponent } from './pages/item-info/item-info.component';
 
 
 const routes: Routes = [
